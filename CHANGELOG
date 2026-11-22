@@ -1,0 +1,31 @@
+# CHANGELOG
+
+## Unreleased
+
+- 中英 README 明确记录 Saltline 研究来源与证据优先的蒸馏方法，加入流程图、来源/消费者实渲图及 Skill 和资产复用路径。
+- 公开快照白名单要求包含 README 用到的来源参考图、材质/玩法/完整宿主实渲图和蒸馏流程图。
+- 双语 README 改用公开版可运行的 starter 作入口，并附 quality 示例的实渲截图与复现命令。
+- 公开快照随附来源说明、贡献与安全报告指南、issue/PR 模板及变更记录。
+
+## 0.1.0 — 2026-11-20
+
+首次发布 how2build3d Skill 的可判定安装状态：
+
+- `scripts/install-skill.sh` 双目标安装：magpie 受管实体拷贝（`.how2build3d-managed`）+ `$DSH` 符号链接；显式排除 `sources/`、`skill/` 与研究夹具。
+- `--check` 判定 `.how2build3d-version`（SKILL.md version + 64 位内容 hash）与 `.distill/creation` 载荷逐文件 hash；漂移或缺失 exit 1 并打印三条恢复路径（install → magpie library sync → Library 页面）。
+- 安装状态可复现：`npm ci --prefix harness` 后 `node harness/verify.mjs --static` 23 步全绿；中英 README 统一「从仓库根运行 / 网络前置 / 四处指针」分发口径。
+
+### 指针
+
+- 引用审计：[.distill/audits/citation-audit.md](.distill/audits/citation-audit.md)（`citations --all --strict` 0 problems / 0 严格债务）
+- 许可：[LICENSE](LICENSE)（PolyForm Noncommercial 1.0.0）与 [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES)（Three.js MIT / Saltline 经用户 2026-11-21 确认无需单独授权、仓库内引用说明）
+- Skill 价值评测：[harness/eval/README.md](harness/eval/README.md)
+- doc fallback：`GIT_DIR=/nonexistent node harness/gates/doc.mjs --all-tracked` 走文件系统遍历（见安装段）
+
+### 安装（从仓库根运行）
+
+```bash
+npm ci --prefix harness
+bash scripts/install-skill.sh
+bash scripts/install-skill.sh --check
+```

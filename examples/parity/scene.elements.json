@@ -1,0 +1,26 @@
+{
+  "$comment": "元素对账申报（tier=full，18 族全 used）。每族 evidence 指向对应展厅的三张截图；数量下限见 harness/element-manifest.json，运行时实测在 build 产物 window.__PARITY__.counts（kit.stats()/遍历自报）。",
+  "version": 1,
+  "scene": "examples/parity",
+  "tier": "full",
+  "elements": {
+    "props":     { "state": "used", "evidence": "evidence/inspect/parity-props.png", "note": "props-kit 整套：36 类目录、17 builder、60 处手写摆放；四区锚点（集装箱堆/闸口/仓库/码头）" },
+    "decals":    { "state": "used", "evidence": "evidence/inspect/parity-props.png", "note": "22 种 Canvas 贴花：13 块地面贴花（油渍/烧灼/裂缝/涂鸦/泊位号/警戒条/锈流/编号/弹孔）+ 道具自带贴花槽" },
+    "materials": { "state": "used", "evidence": "evidence/inspect/parity-mats.png", "note": "sl-surface 48 条材质目录 + triplanar/ORM/湿法线；mats 厅 12 球球墙" },
+    "textures":  { "state": "used", "evidence": "evidence/inspect/parity-mats.png", "note": "sl-textures 29 套程序化 PBR 纹理集（MRT albedo+ORM+高度）" },
+    "sky":       { "state": "used", "evidence": "evidence/inspect/parity-backdrop.png", "note": "sky-deck.glsl 云甲板 + 太阳烧穿 + PMREM uEnv；雷暴 uFlash 由 weather-kit 直写" },
+    "sea":       { "state": "used", "evidence": "evidence/inspect/parity-backdrop.png", "note": "sea.glsl 环形级差网格（63 环×~216 线）+ 涌浪位移 + 猫爪高光，1 draw call" },
+    "ground":    { "state": "used", "evidence": "evidence/inspect/parity-ground.png", "note": "ssr-wet 湿地面：mask/detail/detailN/marks 四层 + 6 块积水盆地 + 平面反射前置 pass" },
+    "weather":   { "state": "used", "evidence": "evidence/inspect/parity-ground.png", "note": "weather-kit：9000 雨条 + 溅射 + 仓库室内盒排除 + 22-55s 雷暴调度（直写 uFlash/uThunder）" },
+    "post":      { "state": "used", "evidence": "evidence/inspect/parity-render.png", "note": "post-chain 单 pass（AgX/暗角/CA/污渍/自适应曝光）+ bloom 金字塔 + 条纹 + post-aa" },
+    "shadow":    { "state": "used", "evidence": "evidence/inspect/parity-render.png", "note": "pcss-shadow chunk 手术（SL_FRUSTUM/SL_DEPTH 按本场景阴影相机标定，tap 数从安装文本实测）" },
+    "enemies":   { "state": "used", "evidence": "evidence/inspect/parity-enemies.png", "note": "enemy-kit：隼（四旋翼）+ 猎犬（2 骨 IK 步态）双型 rig；12 手写刷兵点；感知/令牌对接 combat-kit" },
+    "weapon":    { "state": "used", "evidence": "evidence/inspect/parity-weapon.png", "note": "weapon-kit PAC-9：型材挤出视图模型（49 导轨槽/4 材质槽）+ 9 通道弹簧 + 后坐分离；weapon 厅 54° 机位" },
+    "fx":        { "state": "used", "evidence": "evidence/inspect/parity-fx.png", "note": "fx-kit：lit/add 双 billboard 池 + tracer/debris/shell/decal 环形池 + 蒸汽/余烬/滴水发射器；fx 厅周期爆炸采样" },
+    "audio":     { "state": "used", "evidence": "evidence/inspect/parity-fx.png", "note": "audio-kit 58 条规格（56 可播 + 2 IR）、5 总线、离线混音器计量；fx 厅频谱/峰值证据" },
+    "hud":       { "state": "used", "evidence": "evidence/inspect/parity-render.png", "note": "hud-kit：token 层 + 罗盘带/目标面板/血量/弹药/准星/命中标记/事件流；render 厅叠加实拍" },
+    "layout":    { "state": "used", "evidence": "evidence/inspect/parity-level.png", "note": "level-kit：四区（闸口/堆场/仓库/码头）bounds、12 刷兵点、18 掩体点、3 目标、12 点过场样条全手写坐标" },
+    "loop":      { "state": "used", "evidence": "evidence/inspect/parity-level.png", "note": "combat-kit mission + 三波次表 {3隼1犬}/{3隼2犬}/{4隼3犬}、maxAlive 6、中继切割 ×3、码头撤离简报" },
+    "inspect":   { "state": "used", "evidence": "evidence/inspect/parity-render.png", "note": "九展厅全 used 注册 + __G/__stats/__setShot/__PARITY__/__errors 协议（deck.boot 统一安装）" }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$comment": "资产消费清单：harness/gates/assets.mjs 读取 systems 字段。gameplay 是 tier=game 的玩法链路对照样本，刻意不接渲染链八系统与 sea；kit 层申报见 scene.elements.json（props/enemies 为 n/a，附理由与替代证据），与 complete.mjs 的元素对账同源。",
+  "version": 1,
+  "systems": {
+    "sl-surface": "N/A: 训练场用纯 MeshStandardMaterial 做对照样本，未接 SL 材质层；材质层由 examples/quality 覆盖",
+    "sl-textures": "N/A: 地面只有自建 512² Canvas 沥青纹理，未接 sl-textures 工厂",
+    "post-chain": "N/A: 直出渲染，无后处理链（对照样本）",
+    "post-aa": "N/A: 无后处理链；抗锯齿走 WebGLRenderer 原生设置",
+    "pcss-shadow": "N/A: stock PCFSoft 阴影，无 PCSS 手术",
+    "ssr-wet": "N/A: 训练场地面无湿反射/积水",
+    "shafts": "N/A: 无体积光/光柱",
+    "sky-deck": "N/A: 纯色背景 + 雾，不含天空系统",
+    "sea": "N/A: 陆地训练场，无海面"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "scene": "examples/quality",
+  "galleries": {
+    "mats": { "state": "used" },
+    "props": { "state": "used" },
+    "ground": { "state": "used" },
+    "backdrop": { "state": "used" },
+    "render": { "state": "used" },
+    "level": { "state": "used" },
+    "enemies": { "state": "n/a", "reason": "静态质感样板无敌人系统；enemies 展台由战斗类场景实现" },
+    "weapon": { "state": "n/a", "reason": "静态质感样板无武器/交互系统" },
+    "fx": { "state": "n/a", "reason": "无战斗特效；镜头级效果（bloom/色差/grain）由 render 展厅覆盖" }
+  }
+}

@@ -1,0 +1,734 @@
+{
+  "$comment": "文档门禁契约：每个交付文档的最低体量、必备小节与最低引用数。doc.mjs 读取本文件执行；citations.mjs 校验 [src:Lx-Ly] 合法性（R1-R4）、语义锚定（R5）、字符跨度（R6）与 harness/claims.json 的 upstream/ours 登记（R7）。 [paths reorganized 2026-11-13: docs/understanding|distillation|audits]",
+  "version": 1,
+  "citation": {
+    "pattern": "\\[src:(pretty:)?L(\\d+)(?:-L(\\d+))?\\]",
+    "description": "引用指向 sources/jimao-3a-game/index.html 的行号（1-based，闭区间）。"
+  },
+  "defaults": {
+    "minBytes": 2000,
+    "minCitations": 0,
+    "requiredHeadings": []
+  },
+  "files": {
+    "PROVENANCE.md": { "minBytes": 400, "requiredHeadings": ["Research source"] },
+    "CONTRIBUTING.md": { "minBytes": 500, "requiredHeadings": ["Reproduce and verify"] },
+    "CODE_OF_CONDUCT.md": { "minBytes": 300, "requiredHeadings": ["Working together"] },
+    "SECURITY.md": { "minBytes": 300, "requiredHeadings": ["Report privately"] },
+    ".github/PULL_REQUEST_TEMPLATE.md": { "minBytes": 100, "requiredHeadings": ["Change", "Verification"] },
+    "README.md": {
+      "minBytes": 1500,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "快速开始"
+      ]
+    },
+    "README.en.md": {
+      "minBytes": 4000,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "Quick Start"
+      ]
+    },
+    "examples/quality/README.md": {
+      "minBytes": 2000,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "场景意图",
+        "参数表",
+        "方法论",
+        "验收"
+      ]
+    },
+    "examples/quality/R0.md": {
+      "minBytes": 3000,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "来源",
+        "覆盖矩阵",
+        "16 类",
+        "GAP",
+        "参考对拍"
+      ]
+    },
+    "examples/parity/README.md": {
+      "minBytes": 2000,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "场景意图",
+        "参数表",
+        "方法论",
+        "验收"
+      ]
+    },
+    "examples/gameplay/README.md": {
+      "minBytes": 1500,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "场景意图",
+        "参数表",
+        "方法论",
+        "验收"
+      ]
+    },
+    "examples/scaffold-probe/README.md": {
+      "minBytes": 1500,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "场景意图",
+        "参数表",
+        "方法论",
+        "验收"
+      ]
+    },
+    "harness/baselines/README.md": {
+      "minBytes": 2000,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "文件",
+        "再生命令",
+        "归档"
+      ]
+    },
+    "harness/eval/README.md": {
+      "minBytes": 3500,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "预注册",
+        "任务提示",
+        "两臂设计",
+        "指标",
+        "样本量与盲评",
+        "门禁矩阵"
+      ]
+    },
+    "SKILL.md": {
+      "minBytes": 10000,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "何时用",
+        "铁律",
+        "参考索引"
+      ]
+    },
+    ".distill/00-index.md": {
+      "minBytes": 2500,
+      "minCitations": 4,
+      "requiredHeadings": [
+        "阅读顺序",
+        "结论级摘要"
+      ]
+    },
+    ".distill/understanding/01-anatomy.md": {
+      "minBytes": 4000,
+      "minCitations": 12,
+      "requiredHeadings": [
+        "体积预算",
+        "分层结构",
+        "为什么 1.4 MB 是可能的"
+      ]
+    },
+    ".distill/understanding/02-module-map.md": {
+      "minBytes": 5000,
+      "minCitations": 14,
+      "requiredHeadings": [
+        "系统总表",
+        "静态证据",
+        "运行时证据"
+      ]
+    },
+    ".distill/understanding/03-render-pipeline.md": {
+      "minBytes": 5500,
+      "minCitations": 14,
+      "requiredHeadings": [
+        "管线总览",
+        "色调映射与曝光",
+        "天空",
+        "阴影",
+        "后处理"
+      ]
+    },
+    ".distill/understanding/04-material-system.md": {
+      "minBytes": 5000,
+      "minCitations": 12,
+      "requiredHeadings": [
+        "注入点清单",
+        "与上游的差异",
+        "onBeforeCompile 工作法"
+      ]
+    },
+    ".distill/understanding/05-procedural-assets.md": {
+      "minBytes": 4500,
+      "minCitations": 10,
+      "requiredHeadings": [
+        "噪声与纹理",
+        "几何拼装",
+        "Canvas 贴图"
+      ]
+    },
+    ".distill/understanding/06-audio-system.md": {
+      "minBytes": 4000,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "合成链路",
+        "音效分层",
+        "音乐与战斗强度"
+      ]
+    },
+    ".distill/understanding/07-gameplay-systems.md": {
+      "minBytes": 4500,
+      "minCitations": 10,
+      "requiredHeadings": [
+        "玩家与武器",
+        "敌人与波次",
+        "任务流"
+      ]
+    },
+    ".distill/understanding/08-ui-hud.md": {
+      "minBytes": 3500,
+      "minCitations": 6,
+      "requiredHeadings": [
+        "设计 token",
+        "HUD 分层",
+        "触屏与无障碍"
+      ]
+    },
+    ".distill/understanding/09-runtime-profile.md": {
+      "minBytes": 3000,
+      "minCitations": 4,
+      "requiredHeadings": [
+        "实测方法",
+        "实测数据",
+        "预算结论"
+      ]
+    },
+    ".distill/audits/citation-audit.md": {
+      "minBytes": 800,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "审计结论"
+      ]
+    },
+    ".distill/distillation/00-philosophy.md": {
+      "minBytes": 3500,
+      "minCitations": 10,
+      "requiredHeadings": [
+        "原则",
+        "可执行检验"
+      ]
+    },
+    ".distill/distillation/01-methodology.md": {
+      "minBytes": 4500,
+      "minCitations": 10,
+      "requiredHeadings": [
+        "工作流",
+        "检查点"
+      ]
+    },
+    ".distill/distillation/02-techniques.md": {
+      "minBytes": 8000,
+      "minCitations": 20,
+      "requiredHeadings": [
+        "技巧卡索引"
+      ],
+      "cardRule": {
+        "prefix": "### T-",
+        "minCards": 20,
+        "citationPerCard": true
+      }
+    },
+    ".distill/distillation/03-reasoning-traces.md": {
+      "minBytes": 4000,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "决策链"
+      ]
+    },
+    ".distill/distillation/04-code-atlas.md": {
+      "minBytes": 4500,
+      "minCitations": 12,
+      "requiredHeadings": [
+        "图集"
+      ]
+    },
+    ".distill/distillation/05-antipatterns.md": {
+      "minBytes": 3000,
+      "minCitations": 6,
+      "requiredHeadings": [
+        "反模式"
+      ]
+    },
+    ".distill/distillation/recipes/00-sky.md": {
+      "minBytes": 2500,
+      "minCitations": 5,
+      "requiredHeadings": [
+        "配方",
+        "参数表"
+      ]
+    },
+    ".distill/distillation/recipes/01-sea.md": {
+      "minBytes": 2500,
+      "minCitations": 5,
+      "requiredHeadings": [
+        "配方",
+        "参数表"
+      ]
+    },
+    ".distill/distillation/recipes/02-rain-rust.md": {
+      "minBytes": 2500,
+      "minCitations": 5,
+      "requiredHeadings": [
+        "配方",
+        "参数表"
+      ]
+    },
+    ".distill/distillation/recipes/03-weapon.md": {
+      "minBytes": 2500,
+      "minCitations": 5,
+      "requiredHeadings": [
+        "配方",
+        "参数表"
+      ]
+    },
+    ".distill/distillation/recipes/04-mech-enemy.md": {
+      "minBytes": 2500,
+      "minCitations": 5,
+      "requiredHeadings": [
+        "配方",
+        "参数表"
+      ]
+    },
+    ".distill/distillation/recipes/05-synth-audio.md": {
+      "minBytes": 2500,
+      "minCitations": 5,
+      "requiredHeadings": [
+        "配方",
+        "参数表"
+      ]
+    },
+    ".distill/distillation/06-visual-assets.md": {
+      "minBytes": 4000,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "资产清单",
+        "接入方式",
+        "参数表"
+      ]
+    },
+    ".distill/audits/fidelity-report.md": {
+      "minBytes": 3500,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "pass-2"
+      ]
+    },
+    "references/05-reference-research.md": {
+      "minBytes": 6000,
+      "minCitations": 1,
+      "requiredHeadings": [
+        "多参考",
+        "查询派生",
+        "覆盖矩阵",
+        "要素清单",
+        "GAP",
+        "参考对拍",
+        "归档与许可"
+      ]
+    },
+    "references/00-workflow.md": {
+      "minBytes": 2500,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "三阶段",
+        "阶段表",
+        "三个贯穿门禁"
+      ]
+    },
+    "references/01-render-pipeline.md": {
+      "minBytes": 2000,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "双相机",
+        "每帧排班",
+        "阴影",
+        "后处理"
+      ]
+    },
+    "references/02-materials-and-shaders.md": {
+      "minBytes": 2500,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "四步注入骨架",
+        "chunk 手术",
+        "自检"
+      ]
+    },
+    "references/03-procedural-assets.md": {
+      "minBytes": 2000,
+      "minCitations": 2,
+      "requiredHeadings": [
+        "一张噪声纹理打天下",
+        "Canvas 做旧与排版",
+        "几何三级复用",
+        "自检"
+      ]
+    },
+    "references/04-audio-and-gameplay.md": {
+      "minBytes": 1800,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "声音规格表",
+        "总线图",
+        "手感调参表",
+        "自检"
+      ]
+    },
+    "references/06-performance-and-memory.md": {
+      "minBytes": 6000,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "性能预算",
+        "内存生命周期",
+        "热循环零分配",
+        "WebGPU / WebGL 兼容",
+        "Checklist"
+      ]
+    },
+    ".distill/distillation/07-reference-first.md": {
+      "minBytes": 3500,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "R0",
+        "复盘"
+      ]
+    },
+    "references/07-perceptual-quality.md": {
+      "minBytes": 2500,
+      "minCitations": 2,
+      "requiredHeadings": [
+        "材质分层清单",
+        "光照分层",
+        "后处理校准表",
+        "验收锚点"
+      ]
+    },
+    ".distill/audits/2026-11-14_quality-transfer-audit.md": {
+      "minBytes": 2500,
+      "minCitations": 4,
+      "requiredHeadings": [
+        "实测对照",
+        "根因",
+        "修复映射",
+        "结论"
+      ]
+    },
+    "assets/index.md": {
+      "minBytes": 1500,
+      "minCitations": 2,
+      "requiredHeadings": [
+        "接入约定",
+        "消费者"
+      ]
+    },
+    "references/08-self-inspection.md": {
+      "minBytes": 3000,
+      "minCitations": 3,
+      "requiredHeadings": [
+        "九展厅清单",
+        "接入契约",
+        "自检闭环",
+        "声音自检"
+      ]
+    },
+    "references/09-procedural-animation-and-ai.md": {
+      "minBytes": 3000,
+      "minCitations": 3,
+      "requiredHeadings": [
+        "骨骼",
+        "步态",
+        "攻击令牌",
+        "听觉"
+      ]
+    },
+    ".distill/audits/2026-11-14_teardown-gap-audit.md": {
+      "minBytes": 2500,
+      "minCitations": 4,
+      "requiredHeadings": [
+        "覆盖矩阵",
+        "根因",
+        "修复映射",
+        "结论"
+      ]
+    },
+    "references/10-gameplay-chain.md": {
+      "minBytes": 2500,
+      "minCitations": 3,
+      "requiredHeadings": [
+        "物理",
+        "导航",
+        "关卡",
+        "令牌",
+        "自动战斗"
+      ]
+    },
+    "references/11-element-parity.md": {
+      "minBytes": 4000,
+      "minCitations": 20,
+      "requiredHeadings": [
+        "props",
+        "常见失败与处置",
+        "验收顺序"
+      ]
+    },
+    "references/12-full-scene-assembly.md": {
+      "minBytes": 3000,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "装配顺序",
+        "世界常量模板",
+        "场景目录契约",
+        "迭代闭环"
+      ]
+    },
+    ".distill/audits/2026-11-15_element-parity-audit.md": {
+      "minBytes": 2500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "覆盖矩阵",
+        "实测方法",
+        "已知短板",
+        "结论"
+      ]
+    },
+    ".distill/audits/2026-11-16_peer-reference-acquisition-study.md": {
+      "minBytes": 3000,
+      "minCitations": 0,
+      "requiredHeadings": [
+        "样本与关键结论",
+        "综合 → R0 增强设计"
+      ]
+    },
+    ".distill/distillation/08-gameplay-kits.md": {
+      "minBytes": 2000,
+      "minCitations": 3,
+      "requiredHeadings": [
+        "物理",
+        "关卡",
+        "战斗"
+      ]
+    },
+    ".distill/creation/00-index.md": {
+      "minBytes": 3000,
+      "minCitations": 6,
+      "requiredHeadings": [
+        "创物公理",
+        "阅读顺序"
+      ]
+    },
+    ".distill/creation/01-props.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/02-decals.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/03-materials.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/04-textures.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/05-sky.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/06-sea.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/07-ground.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/08-weather.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/09-post.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/10-shadow.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/11-enemies.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/12-weapon.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/13-fx.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/14-audio.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/15-hud.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/16-layout.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/17-loop.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/18-inspect.md": {
+      "minBytes": 3500,
+      "minCitations": 8,
+      "requiredHeadings": [
+        "构建法则",
+        "完整链路",
+        "思维链",
+        "迁移法则"
+      ]
+    },
+    ".distill/creation/19-legacy-systems.md": {
+      "minBytes": 4000,
+      "minCitations": 10,
+      "requiredHeadings": [
+        "海鸥群",
+        "迁移法则"
+      ]
+    }
+  },
+  "groups": {
+    "distilled-core": [
+      ".distill/distillation/03-reasoning-traces.md",
+      ".distill/distillation/04-code-atlas.md",
+      ".distill/distillation/05-antipatterns.md",
+      ".distill/distillation/06-visual-assets.md",
+      ".distill/distillation/07-reference-first.md"
+    ],
+    "recipes": [
+      ".distill/distillation/recipes/00-sky.md",
+      ".distill/distillation/recipes/01-sea.md",
+      ".distill/distillation/recipes/02-rain-rust.md",
+      ".distill/distillation/recipes/03-weapon.md",
+      ".distill/distillation/recipes/04-mech-enemy.md",
+      ".distill/distillation/recipes/05-synth-audio.md"
+    ]
+  }
+}

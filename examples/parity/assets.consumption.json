@@ -1,0 +1,15 @@
+{
+  "$comment": "资产消费清单：harness/gates/assets.mjs 读取 systems 字段。八系统 + sea 全部原样消费（GLSL 以字符串内联进单文件；ssr-wet 的 SSR_WET_RR 块按 BEGIN/END 标记切出注入；kit 以 IIFE 命名空间内联，消费结论以本场景 build 产物为准）。",
+  "version": 1,
+  "systems": {
+    "sl-surface": "used",
+    "sl-textures": "used",
+    "post-chain": "used",
+    "post-aa": "used",
+    "pcss-shadow": "used",
+    "ssr-wet": "used",
+    "shafts": "used",
+    "sky-deck": "used",
+    "sea": "used"
+  }
+}

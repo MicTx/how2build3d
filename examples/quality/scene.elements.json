@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "scene": "examples/quality",
+  "tier": "visual",
+  "note": "观感样板：只对渲染链的七族负责；玩法/音频/HUD 等族明确 n/a，替代证据是整场截图（画面里确实没有这些元素）。同水准交付见 examples/parity。",
+  "elements": {
+    "props": { "state": "n/a", "reason": "样板用简化箱体组合占位，未消费 assets/props-kit.mjs 的道具目录；配色/材质才是它的职责，道具目录由 examples/parity 覆盖", "evidence": "evidence/frames/quality.png" },
+    "decals": { "state": "n/a", "reason": "只有一块 Canvas 做旧标牌，没有贴花目录与地面贴花；贴花由 examples/parity 覆盖", "evidence": "evidence/frames/quality.png" },
+    "materials": { "state": "used" },
+    "textures": { "state": "used" },
+    "sky": { "state": "used" },
+    "sea": { "state": "n/a", "reason": "堆场内景，画面里没有海面；sea.glsl 的宿主消费场景是 examples/parity", "evidence": "evidence/frames/quality.png" },
+    "ground": { "state": "used" },
+    "weather": { "state": "n/a", "reason": "只有湿地面与雨量 uniform，没有雨条/溅射/雷暴调度系统", "evidence": "evidence/frames/quality.png" },
+    "post": { "state": "used" },
+    "shadow": { "state": "used" },
+    "enemies": { "state": "n/a", "reason": "静态观感样板无战斗系统；敌人骨骼/IK/AI 由 examples/parity 覆盖", "evidence": "evidence/frames/quality.png" },
+    "weapon": { "state": "n/a", "reason": "无玩家相机与视图模型；weapon 展厅由 examples/parity 覆盖", "evidence": "evidence/frames/quality.png" },
+    "fx": { "state": "n/a", "reason": "无枪口焰/弹道/粒子池；fx 展厅由 examples/parity 覆盖", "evidence": "evidence/frames/quality.png" },
+    "audio": { "state": "n/a", "reason": "样板静音运行（bench 模式），未接入 audio-kit", "evidence": "evidence/frames/quality.png" },
+    "hud": { "state": "n/a", "reason": "只有一行统计 HUD，没有罗盘/目标/弹药等组件", "evidence": "evidence/frames/quality.png" },
+    "layout": { "state": "n/a", "reason": "单体堆场展示，无分区/掩体/刷兵/目标的手写布局", "evidence": "evidence/frames/quality.png" },
+    "loop": { "state": "n/a", "reason": "无玩法循环", "evidence": "evidence/frames/quality.png" },
+    "inspect": { "state": "used" }
+  }
+}

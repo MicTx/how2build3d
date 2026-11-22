@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "capture": {
+    "frames": 24,
+    "waitMs": 6000,
+    "viewport": [640, 360],
+    "seed": 4207
+  },
+  "limits": {
+    "minFrames": 16,
+    "minDrawCalls": 1,
+    "minP50DrawCalls": 1,
+    "maxDrawCalls": 500,
+    "maxTriangles": 4000000,
+    "maxPrograms": 400,
+    "maxGeometries": 300,
+    "maxTextures": 250,
+    "maxP50DrawCalls": 450,
+    "maxDrawCallsPerFrame": 1000,
+    "maxP50FrameMs": 6000
+  },
+  "floors": {
+    "$comment": "密度下限：只在 --floors 时生效。这里的全局值是「非空壳」冒烟底线；真正的同水准密度由场景自带的 <scene>/perf.budget.json 抬高（如 examples/parity）。",
+    "minP50DrawCalls": 8,
+    "minTriangles": 2000,
+    "minPrograms": 4
+  },
+  "note": "结构指标（draw call / triangle / program / geometry / texture）作为硬门禁；SwiftShader 的绝对帧时只作为宽松上限和结构参考，不代表真机 GPU 性能。floors 是反向门禁：防止「技术全绿、内容空壳」。"
+}

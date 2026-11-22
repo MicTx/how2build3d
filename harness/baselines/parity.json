@@ -1,0 +1,13 @@
+{
+ "generatedAt": "2026-11-20T12:42:16.813Z",
+ "scene": "examples/parity",
+ "source": "scene examples/parity (live)",
+ "tolerance": 0.15,
+ "metrics": {
+  "drawCalls": 188,
+  "tris": 43670,
+  "materials": 48,
+  "propKinds": 19,
+  "soundSpecs": 58
+ }
+}

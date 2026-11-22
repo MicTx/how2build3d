@@ -1,0 +1,15 @@
+{
+  "name": "how2build3d-harness",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Evidence pipeline: run the Saltline fixture headlessly, capture shaders, frames and profile data.",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "playwright-core": "1.65.0",
+    "prettier": "3.10.1",
+    "three": "0.180.0"
+  }
+}

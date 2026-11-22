@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "scene": "examples/gameplay",
+  "tier": "game",
+  "note": "kit 合同样本：证明物理/关卡/战斗三 kit 能装在一起并确定性复现。它声明的是「玩法三族 used（layout/loop/inspect）+ 其余 n/a」，不是同水准密度（tier=game 不套下限）；同水准交付见 examples/parity。",
+  "elements": {
+    "props": { "state": "n/a", "reason": "训练场道具是 level-kit 手写 layout 的简单盒体，未消费 assets/props-kit.mjs 的道具目录（无 builder/贴花/InstancedMesh）；道具目录由 examples/parity 覆盖", "evidence": "evidence/inspect/gameplay-battle.png" },
+    "decals": { "state": "n/a", "reason": "训练场无贴花与标识；贴花目录由 parity 覆盖", "evidence": "evidence/frames/gameplay.png" },
+    "materials": { "state": "n/a", "reason": "刻意用纯 MeshStandardMaterial 做对照样本；SL 材质层由 examples/quality 覆盖（这一条 n/a 是「反面样本」的证据）", "evidence": "evidence/inspect/gameplay-battle.png" },
+    "textures": { "state": "n/a", "reason": "地面只有一张 512² Canvas 纹理，未接 sl-textures 工厂", "evidence": "evidence/inspect/gameplay-battle.png" },
+    "sky": { "state": "n/a", "reason": "纯色背景 + 雾，不含天空系统", "evidence": "evidence/inspect/gameplay-battle.png" },
+    "sea": { "state": "n/a", "reason": "陆地训练场，无海面", "evidence": "evidence/inspect/gameplay-battle.png" },
+    "ground": { "state": "n/a", "reason": "单张纹理平面，无湿痕/积水/平面反射", "evidence": "evidence/inspect/gameplay-battle.png" },
+    "weather": { "state": "n/a", "reason": "无雨雷系统", "evidence": "evidence/inspect/gameplay-battle.png" },
+    "post": { "state": "n/a", "reason": "直出渲染，无后处理链（对照样本）", "evidence": "evidence/inspect/gameplay-battle.png" },
+    "shadow": { "state": "n/a", "reason": "stock PCFSoft，无 PCSS 手术", "evidence": "evidence/inspect/gameplay-battle.png" },
+    "enemies": { "state": "n/a", "reason": "敌人是三架 combat-kit agent bot（胶囊体/状态机），未接 enemy-kit 的骨骼/IK rig 与命中区；敌人骨架由 examples/parity 覆盖", "evidence": "evidence/inspect/gameplay-battle.png" },
+    "weapon": { "state": "n/a", "reason": "玩家由脚本驱动，无视图模型与武器手感通道", "evidence": "evidence/inspect/gameplay-battle.png" },
+    "fx": { "state": "n/a", "reason": "弹道是发光小球，无枪口焰/粒子池/贴花", "evidence": "evidence/inspect/gameplay-battle.png" },
+    "audio": { "state": "n/a", "reason": "静音运行（gameplay 门禁在无音频时跳过音频断言）", "evidence": "evidence/inspect/gameplay-battle.png" },
+    "hud": { "state": "n/a", "reason": "只有一行统计文字", "evidence": "evidence/inspect/gameplay-battle.png" },
+    "layout": { "state": "used" },
+    "loop": { "state": "used" },
+    "inspect": { "state": "used" }
+  }
+}

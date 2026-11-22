@@ -1,0 +1,116 @@
+{
+  "$comment": "R7 claims 登记（harness/gates/citations.mjs 读取）：同一族数字的 upstream/ours 两套值 + 文档断言点。checks[].regex 的第 1 个捕获组必须等于 expect；缺失或漂移都判红。citationDebt 是 R5/R6 上线前的存量语义债务，显式按「文件+规则+token」/「文件+标签+次数」登记；新失配不在债务内即判红，--strict 可忽略债务做清零核对。 | 2026-11-20: citationDebt 已删除，严格债务 0；--strict 作为兼容开关保留。",
+  "version": 1,
+  "claims": [
+    {
+      "id": "audio.specs",
+      "label": "音频规格条数 / 可播条数 / 声部 / IR",
+      "upstream": {
+        "specs": 57,
+        "nonMusicPlayable": 50,
+        "musicStems": 5,
+        "playable": 55,
+        "irs": 2,
+        "refs": [
+          "[src:pretty:L50465-L50521]"
+        ],
+        "note": "Go 表 57 行 = 50 个非音乐可播名 + 5 个音乐声部 + 2 张生成 IR；可播 55。"
+      },
+      "ours": {
+        "specs": 58,
+        "nonMusicPlayable": 51,
+        "musicStems": 5,
+        "playable": 56,
+        "irs": 2,
+        "asset": "assets/audio-kit.mjs",
+        "note": "audio-kit.mjs 重编目录：58 条 = 51 + 5 + 2；stats() 自报 playable 56。"
+      },
+      "checks": [
+        {
+          "file": ".distill/understanding/06-audio-system.md",
+          "regex": "(\\d+)\\s*条声音规格",
+          "expect": 57
+        },
+        {
+          "file": ".distill/understanding/06-audio-system.md",
+          "regex": "表里\\s*(\\d+)\\s*条规格",
+          "expect": 57
+        },
+        {
+          "file": ".distill/understanding/06-audio-system.md",
+          "regex": "(\\d+)\\s*个可播",
+          "expect": 55
+        },
+        {
+          "file": "references/11-element-parity.md",
+          "regex": "(\\d+)\\s*条声音规格",
+          "expect": 57
+        },
+        {
+          "file": "references/11-element-parity.md",
+          "regex": "上游\\s*(\\d+)\\s*条规格",
+          "expect": 57
+        },
+        {
+          "file": "references/11-element-parity.md",
+          "regex": "我方\\s*(\\d+)\\s*条",
+          "expect": 58
+        },
+        {
+          "file": "references/11-element-parity.md",
+          "regex": "自报\\s*playable\\s*(\\d+)",
+          "expect": 56
+        },
+        {
+          "file": ".distill/creation/14-audio.md",
+          "regex": "表共\\s*(\\d+)\\s*行",
+          "expect": 57
+        },
+        {
+          "file": ".distill/creation/14-audio.md",
+          "regex": "我方扩为\\s*(\\d+)\\s*行",
+          "expect": 58
+        },
+        {
+          "file": ".distill/creation/14-audio.md",
+          "regex": "上游\\s*(\\d+)\\s*条（",
+          "expect": 57
+        },
+        {
+          "file": ".distill/creation/14-audio.md",
+          "regex": "我方\\s*(\\d+)\\s*条（",
+          "expect": 58
+        },
+        {
+          "file": ".distill/distillation/02-techniques.md",
+          "regex": "(\\d+)\\s*条规格一条记录",
+          "expect": 57
+        },
+        {
+          "file": "assets/audio-kit.mjs",
+          "regex": "(\\d+)\\s*条规格表",
+          "expect": 58
+        },
+        {
+          "file": "assets/audio-kit.mjs",
+          "regex": "(\\d+)\\s*可播",
+          "expect": 56
+        },
+        {
+          "file": "assets/audio-kit.mjs",
+          "regex": "playable:\\s*(\\d+)",
+          "expect": 56
+        }
+      ]
+    }
+  ],
+  "anchors": {
+    "$comment": "R5 登记锚点：登记项即使不在上游 app 区/对象字面量也必须锚定；未登记项保持旧边界",
+    "identifiers": [
+      "SALTLINE_POSTX"
+    ],
+    "keyValues": [
+      "zzFakePri:9"
+    ]
+  }
+}

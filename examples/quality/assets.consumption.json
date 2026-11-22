@@ -1,0 +1,15 @@
+{
+  "$comment": "资产消费清单：harness/gates/assets.mjs 读取 systems 字段。八系统全部原样消费（GLSL 以字符串内联，ssr-wet 的 SSR_WET_RR 块按 BEGIN/END 标记从 assets/ssr-wet.glsl 切出注入）；kit 层不接入，申报见 scene.elements.json（props/decals/fx/audio 等为 n/a）。",
+  "version": 1,
+  "systems": {
+    "sl-surface": "used",
+    "sl-textures": "used",
+    "post-chain": "used",
+    "post-aa": "used",
+    "pcss-shadow": "used",
+    "ssr-wet": "used",
+    "shafts": "used",
+    "sky-deck": "used",
+    "sea": "N/A: 堆场内景没有海面；sea.glsl 的宿主消费场景是 examples/parity"
+  }
+}

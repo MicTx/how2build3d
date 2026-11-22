@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 安全报告 · Private security report
+    url: https://github.com/MicTx/how2build3d/security/advisories/new
+    about: Report sensitive findings privately, not in an issue.

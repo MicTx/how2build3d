@@ -1,0 +1,14 @@
+{
+  "scene": "examples/gameplay",
+  "galleries": {
+    "enemies": { "state": "used", "reason": "本厅展示 gameplay 自己的 combat-kit agent bot（胶囊体/状态机），不是 enemy-kit 骨骼/IK 展台；enemy-kit 由 examples/parity 覆盖" },
+    "level": { "state": "used", "reason": "level-kit 手写布局展台（本场景真实消费）" },
+    "props": { "state": "used", "reason": "本厅展示 level-kit 手写 layout 的盒体道具，不是 props-kit 目录/贴花展台；props-kit 由 examples/parity 覆盖" },
+    "mats": { "state": "n/a", "reason": "系统样例用最小标准材质；材质墙由 examples/quality 的 ?show=mats 覆盖" },
+    "ground": { "state": "n/a", "reason": "训练场地面为素面色块；湿地/裂缝细节由 examples/quality 覆盖" },
+    "backdrop": { "state": "n/a", "reason": "纯色雾天空；云甲板天空由 examples/quality 覆盖" },
+    "render": { "state": "n/a", "reason": "无后处理链；渲染展台由 examples/quality 覆盖" },
+    "weapon": { "state": "n/a", "reason": "样板无手持武器模型；射击经由 combat-kit 弹道池实现" },
+    "fx": { "state": "n/a", "reason": "弹道曳光由 bolt 网格直接表达，无独立特效系统" }
+  }
+}

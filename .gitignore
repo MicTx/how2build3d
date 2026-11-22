@@ -1,0 +1,20 @@
+# 依赖与构建产物（锁文件必须入库：CI 用 npm ci 复现依赖树）
+node_modules/
+build/
+dist/
+coverage/
+
+# 运行时证据与截图（全部可再生，不入库；基线例外见 harness/baselines/）
+evidence/
+
+# macOS
+.DS_Store
+
+# 本机 agent 会话状态（计划/草稿，不入库）
+.zcode/
+
+# Spec Harness 工作树（由 info/exclude 兜底，这里双保险）
+.spec/worktrees/
+
+# Spec Harness 运行缓存（archive-index 等，机器生成）
+.spec/cache/

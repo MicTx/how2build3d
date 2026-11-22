@@ -1,0 +1,16 @@
+name: 功能建议 · Feature request
+description: Describe a scene or workflow the skill does not yet cover.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: What are you trying to build?
+      description: Identify the closest existing example and what it cannot do.
+    validations:
+      required: true
+  - type: textarea
+    id: success
+    attributes:
+      label: How would we know it works?
+      description: Suggest an observable result, reference view or measurable check.

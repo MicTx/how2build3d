@@ -1,0 +1,42 @@
+{
+  "$comment": "九展厅清单。把真正做出来的展厅改成 used；n/a 必须写理由（complete.mjs 会拒绝空理由/占位文本）。",
+  "version": 1,
+  "galleries": {
+    "mats": {
+      "state": "n/a",
+      "reason": ""
+    },
+    "props": {
+      "state": "n/a",
+      "reason": ""
+    },
+    "enemies": {
+      "state": "n/a",
+      "reason": ""
+    },
+    "weapon": {
+      "state": "n/a",
+      "reason": ""
+    },
+    "fx": {
+      "state": "n/a",
+      "reason": ""
+    },
+    "render": {
+      "state": "n/a",
+      "reason": ""
+    },
+    "ground": {
+      "state": "n/a",
+      "reason": ""
+    },
+    "backdrop": {
+      "state": "n/a",
+      "reason": ""
+    },
+    "level": {
+      "state": "n/a",
+      "reason": ""
+    }
+  }
+}

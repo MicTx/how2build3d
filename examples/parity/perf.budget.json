@@ -1,0 +1,33 @@
+{
+  "$comment": "parity 场景预算（铁律 #1：预算先于内容）。capture 口径同 harness/perf.budget.json；limits 是场景自报上界——九 kit 整场装配 + 单 pass 后处理链在 SwiftShader 下的预算，README 参数表同源。",
+  "version": 1,
+  "capture": {
+    "frames": 24,
+    "waitMs": 6000,
+    "viewport": [
+      640,
+      360
+    ],
+    "seed": 4207
+  },
+  "limits": {
+    "minFrames": 16,
+    "minDrawCalls": 1,
+    "minP50DrawCalls": 1,
+    "maxDrawCalls": 900,
+    "maxTriangles": 4500000,
+    "maxPrograms": 400,
+    "maxGeometries": 800,
+    "maxTextures": 400,
+    "maxP50DrawCalls": 800,
+    "maxDrawCallsPerFrame": 1200,
+    "maxP50FrameMs": 6000
+  },
+  "floors": {
+    "$comment": "密度下限：以首测实测为基准留余量（43k tris / 188 draws @q=low），防内容空壳；上限是场景申报预算（README 参数表同源）。",
+    "minP50DrawCalls": 60,
+    "minTriangles": 30000,
+    "minPrograms": 8
+  },
+  "note": "结构指标硬门禁；SwiftShader 帧时只作宽松上限。maxDrawCalls=900 是本场景申报预算（单帧含阴影/反射/后处理全链），README 参数表同值——不是全局默认的放水。"
+}

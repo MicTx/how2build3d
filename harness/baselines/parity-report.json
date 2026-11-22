@@ -1,0 +1,801 @@
+{
+ "generatedAt": "2026-11-20T12:41:59.451Z",
+ "scene": "examples/parity",
+ "ok": true,
+ "counts": {
+  "propKinds": 19,
+  "placedProps": 60,
+  "decalTypes": 22,
+  "placedDecals": 17,
+  "materialCount": 48,
+  "textureSets": 29,
+  "skyPasses": 1,
+  "seaSurfaces": 1,
+  "groundLayers": 4,
+  "puddlePatches": 6,
+  "rainStreaks": 4950,
+  "thunderEvents": 0,
+  "postPasses": 5,
+  "bloomLevels": 0,
+  "shadowMaps": 1,
+  "shadowTaps": 16,
+  "enemyTypes": 2,
+  "enemySpawns": 12,
+  "enemyRigs": 18,
+  "weaponMeshes": 5,
+  "weaponChannels": 9,
+  "fxKinds": 11,
+  "fxPools": 2,
+  "fxDrawCalls": 5,
+  "soundSpecs": 58,
+  "musicParts": 5,
+  "audioBuses": 5,
+  "hudComponents": 10,
+  "hudTokens": 26,
+  "zones": 4,
+  "coverPoints": 18,
+  "objectives": 3,
+  "objectivesWired": 3,
+  "waves": 3,
+  "galleriesUsed": 9
+ },
+ "stats": {
+  "calls": 188,
+  "tris": 43670,
+  "geos": 95,
+  "tex": 99,
+  "programs": 23,
+  "frame": 42,
+  "fps": 60,
+  "quality": "low"
+ },
+ "problems": [],
+ "warnings": [
+  "weather.thunderEvents（雷暴调度事件数）= 0 < 1（可选指标）",
+  "post.bloomLevels（bloom 金字塔级数）= 0 < 2（可选指标）"
+ ],
+ "results": [
+  {
+   "id": "props",
+   "name": "道具与零件目录",
+   "state": "used",
+   "gallery": "props",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-props.png",
+     "exists": true,
+     "bytes": 436514
+    },
+    {
+     "file": "evidence/inspect/parity-props-2.png",
+     "exists": true,
+     "bytes": 448114
+    },
+    {
+     "file": "evidence/inspect/parity-props-3.png",
+     "exists": true,
+     "bytes": 436582
+    }
+   ],
+   "floors": [
+    {
+     "metric": "propKinds",
+     "label": "道具种类",
+     "min": 12,
+     "actual": 19,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "placedProps",
+     "label": "场中实例数",
+     "min": 60,
+     "actual": 60,
+     "required": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "decals",
+   "name": "Canvas 贴花与标识排版",
+   "state": "used",
+   "gallery": "props",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-props.png",
+     "exists": true,
+     "bytes": 436514
+    },
+    {
+     "file": "evidence/inspect/parity-props-2.png",
+     "exists": true,
+     "bytes": 448114
+    },
+    {
+     "file": "evidence/inspect/parity-props-3.png",
+     "exists": true,
+     "bytes": 436582
+    }
+   ],
+   "floors": [
+    {
+     "metric": "decalTypes",
+     "label": "贴花种类",
+     "min": 6,
+     "actual": 22,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "placedDecals",
+     "label": "场中贴花数",
+     "min": 15,
+     "actual": 17,
+     "required": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "materials",
+   "name": "材质目录",
+   "state": "used",
+   "gallery": "mats",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-mats.png",
+     "exists": true,
+     "bytes": 448048
+    },
+    {
+     "file": "evidence/inspect/parity-mats-2.png",
+     "exists": true,
+     "bytes": 448569
+    },
+    {
+     "file": "evidence/inspect/parity-mats-3.png",
+     "exists": true,
+     "bytes": 447483
+    }
+   ],
+   "floors": [
+    {
+     "metric": "materialCount",
+     "label": "材质条目数",
+     "min": 16,
+     "actual": 48,
+     "required": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "textures",
+   "name": "程序化 PBR 纹理集",
+   "state": "used",
+   "gallery": "mats",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-mats.png",
+     "exists": true,
+     "bytes": 448048
+    },
+    {
+     "file": "evidence/inspect/parity-mats-2.png",
+     "exists": true,
+     "bytes": 448569
+    },
+    {
+     "file": "evidence/inspect/parity-mats-3.png",
+     "exists": true,
+     "bytes": 447483
+    }
+   ],
+   "floors": [
+    {
+     "metric": "textureSets",
+     "label": "纹理集数",
+     "min": 10,
+     "actual": 29,
+     "required": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "sky",
+   "name": "程序化天空与云甲板",
+   "state": "used",
+   "gallery": "backdrop",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-backdrop.png",
+     "exists": true,
+     "bytes": 405365
+    },
+    {
+     "file": "evidence/inspect/parity-backdrop-2.png",
+     "exists": true,
+     "bytes": 391804
+    },
+    {
+     "file": "evidence/inspect/parity-backdrop-3.png",
+     "exists": true,
+     "bytes": 422192
+    }
+   ],
+   "floors": [
+    {
+     "metric": "skyPasses",
+     "label": "天空 pass 数",
+     "min": 1,
+     "actual": 1,
+     "required": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "sea",
+   "name": "海面",
+   "state": "used",
+   "gallery": "backdrop",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-backdrop.png",
+     "exists": true,
+     "bytes": 405365
+    },
+    {
+     "file": "evidence/inspect/parity-backdrop-2.png",
+     "exists": true,
+     "bytes": 391804
+    },
+    {
+     "file": "evidence/inspect/parity-backdrop-3.png",
+     "exists": true,
+     "bytes": 422192
+    }
+   ],
+   "floors": [
+    {
+     "metric": "seaSurfaces",
+     "label": "海面网格数",
+     "min": 1,
+     "actual": 1,
+     "required": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "ground",
+   "name": "地面：湿痕/积水/接缝/标线",
+   "state": "used",
+   "gallery": "ground",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-ground.png",
+     "exists": true,
+     "bytes": 428129
+    },
+    {
+     "file": "evidence/inspect/parity-ground-2.png",
+     "exists": true,
+     "bytes": 426706
+    },
+    {
+     "file": "evidence/inspect/parity-ground-3.png",
+     "exists": true,
+     "bytes": 427774
+    }
+   ],
+   "floors": [
+    {
+     "metric": "groundLayers",
+     "label": "地面层次数（mask/detail/marking/puddle）",
+     "min": 2,
+     "actual": 4,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "puddlePatches",
+     "label": "积水区块数",
+     "min": 3,
+     "actual": 6,
+     "required": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "weather",
+   "name": "雨与雷暴",
+   "state": "used",
+   "gallery": "ground",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-ground.png",
+     "exists": true,
+     "bytes": 428129
+    },
+    {
+     "file": "evidence/inspect/parity-ground-2.png",
+     "exists": true,
+     "bytes": 426706
+    },
+    {
+     "file": "evidence/inspect/parity-ground-3.png",
+     "exists": true,
+     "bytes": 427774
+    }
+   ],
+   "floors": [
+    {
+     "metric": "rainStreaks",
+     "label": "雨条实例数",
+     "min": 800,
+     "actual": 4950,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "thunderEvents",
+     "label": "雷暴调度事件数",
+     "min": 1,
+     "actual": 0,
+     "required": false,
+     "pass": false
+    }
+   ]
+  },
+  {
+   "id": "post",
+   "name": "单 pass 后处理链",
+   "state": "used",
+   "gallery": "render",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-render.png",
+     "exists": true,
+     "bytes": 426845
+    },
+    {
+     "file": "evidence/inspect/parity-render-2.png",
+     "exists": true,
+     "bytes": 423302
+    },
+    {
+     "file": "evidence/inspect/parity-render-3.png",
+     "exists": true,
+     "bytes": 436985
+    }
+   ],
+   "floors": [
+    {
+     "metric": "postPasses",
+     "label": "后处理 pass 数",
+     "min": 5,
+     "actual": 5,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "bloomLevels",
+     "label": "bloom 金字塔级数",
+     "min": 2,
+     "actual": 0,
+     "required": false,
+     "pass": false
+    }
+   ]
+  },
+  {
+   "id": "shadow",
+   "name": "软阴影（PCSS）",
+   "state": "used",
+   "gallery": "render",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-render.png",
+     "exists": true,
+     "bytes": 426845
+    },
+    {
+     "file": "evidence/inspect/parity-render-2.png",
+     "exists": true,
+     "bytes": 423302
+    },
+    {
+     "file": "evidence/inspect/parity-render-3.png",
+     "exists": true,
+     "bytes": 436985
+    }
+   ],
+   "floors": [
+    {
+     "metric": "shadowMaps",
+     "label": "阴影图数量",
+     "min": 1,
+     "actual": 1,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "shadowTaps",
+     "label": "PCSS 采样数",
+     "min": 10,
+     "actual": 16,
+     "required": false,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "enemies",
+   "name": "敌人：骨骼/IK/感知",
+   "state": "used",
+   "gallery": "enemies",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-enemies.png",
+     "exists": true,
+     "bytes": 449486
+    },
+    {
+     "file": "evidence/inspect/parity-enemies-2.png",
+     "exists": true,
+     "bytes": 446194
+    },
+    {
+     "file": "evidence/inspect/parity-enemies-3.png",
+     "exists": true,
+     "bytes": 449030
+    }
+   ],
+   "floors": [
+    {
+     "metric": "enemyTypes",
+     "label": "敌人类型数",
+     "min": 1,
+     "actual": 2,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "enemySpawns",
+     "label": "刷兵点数",
+     "min": 6,
+     "actual": 12,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "enemyRigs",
+     "label": "可动画 rig 数",
+     "min": 1,
+     "actual": 18,
+     "required": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "weapon",
+   "name": "武器视图模型与手感",
+   "state": "used",
+   "gallery": "weapon",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-weapon.png",
+     "exists": true,
+     "bytes": 451331
+    },
+    {
+     "file": "evidence/inspect/parity-weapon-2.png",
+     "exists": true,
+     "bytes": 443571
+    },
+    {
+     "file": "evidence/inspect/parity-weapon-3.png",
+     "exists": true,
+     "bytes": 448749
+    }
+   ],
+   "floors": [
+    {
+     "metric": "weaponMeshes",
+     "label": "视图模型网格数",
+     "min": 1,
+     "actual": 5,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "weaponChannels",
+     "label": "弹簧通道数",
+     "min": 9,
+     "actual": 9,
+     "required": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "fx",
+   "name": "FX：枪口焰/弹道/弹着/水花/贴花",
+   "state": "used",
+   "gallery": "fx",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-fx.png",
+     "exists": true,
+     "bytes": 414468
+    },
+    {
+     "file": "evidence/inspect/parity-fx-2.png",
+     "exists": true,
+     "bytes": 418237
+    },
+    {
+     "file": "evidence/inspect/parity-fx-3.png",
+     "exists": true,
+     "bytes": 415169
+    }
+   ],
+   "floors": [
+    {
+     "metric": "fxKinds",
+     "label": "FX 种类数",
+     "min": 5,
+     "actual": 11,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "fxPools",
+     "label": "粒子池数",
+     "min": 2,
+     "actual": 2,
+     "required": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "audio",
+   "name": "合成音频：规格表/总线/五声部",
+   "state": "used",
+   "gallery": "fx",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-fx.png",
+     "exists": true,
+     "bytes": 414468
+    },
+    {
+     "file": "evidence/inspect/parity-fx-2.png",
+     "exists": true,
+     "bytes": 418237
+    },
+    {
+     "file": "evidence/inspect/parity-fx-3.png",
+     "exists": true,
+     "bytes": 415169
+    }
+   ],
+   "floors": [
+    {
+     "metric": "soundSpecs",
+     "label": "音效规格条目数",
+     "min": 16,
+     "actual": 58,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "musicParts",
+     "label": "音乐声部数",
+     "min": 1,
+     "actual": 5,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "audioBuses",
+     "label": "总线数",
+     "min": 3,
+     "actual": 5,
+     "required": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "hud",
+   "name": "HUD 与 UI 设计系统",
+   "state": "used",
+   "gallery": "render",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-render.png",
+     "exists": true,
+     "bytes": 426845
+    },
+    {
+     "file": "evidence/inspect/parity-render-2.png",
+     "exists": true,
+     "bytes": 423302
+    },
+    {
+     "file": "evidence/inspect/parity-render-3.png",
+     "exists": true,
+     "bytes": 436985
+    }
+   ],
+   "floors": [
+    {
+     "metric": "hudComponents",
+     "label": "HUD 组件数",
+     "min": 6,
+     "actual": 10,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "hudTokens",
+     "label": "设计 token 数",
+     "min": 6,
+     "actual": 26,
+     "required": false,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "layout",
+   "name": "关卡布局（分区/掩体/刷兵/目标）",
+   "state": "used",
+   "gallery": "level",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-level.png",
+     "exists": true,
+     "bytes": 430157
+    },
+    {
+     "file": "evidence/inspect/parity-level-2.png",
+     "exists": true,
+     "bytes": 457610
+    },
+    {
+     "file": "evidence/inspect/parity-level-3.png",
+     "exists": true,
+     "bytes": 430562
+    }
+   ],
+   "floors": [
+    {
+     "metric": "zones",
+     "label": "分区数",
+     "min": 2,
+     "actual": 4,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "coverPoints",
+     "label": "掩体点数",
+     "min": 12,
+     "actual": 18,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "objectives",
+     "label": "目标数",
+     "min": 1,
+     "actual": 3,
+     "required": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "loop",
+   "name": "玩法循环：波次/目标/撤离",
+   "state": "used",
+   "gallery": "level",
+   "problems": [],
+   "warnings": [],
+   "evidence": [
+    {
+     "file": "evidence/inspect/parity-level.png",
+     "exists": true,
+     "bytes": 430157
+    },
+    {
+     "file": "evidence/inspect/parity-level-2.png",
+     "exists": true,
+     "bytes": 457610
+    },
+    {
+     "file": "evidence/inspect/parity-level-3.png",
+     "exists": true,
+     "bytes": 430562
+    }
+   ],
+   "floors": [
+    {
+     "metric": "waves",
+     "label": "波次数",
+     "min": 1,
+     "actual": 3,
+     "required": true,
+     "pass": true
+    },
+    {
+     "metric": "objectivesWired",
+     "label": "接入循环的目标数",
+     "min": 1,
+     "actual": 3,
+     "required": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "inspect",
+   "name": "自检展厅与检视钩子",
+   "state": "used",
+   "gallery": null,
+   "problems": [],
+   "warnings": [],
+   "galleriesUsed": 9,
+   "floors": [
+    {
+     "metric": "galleriesUsed",
+     "label": "used 展厅数",
+     "min": 1,
+     "actual": 9,
+     "required": true,
+     "pass": true
+    }
+   ]
+  }
+ ]
+}

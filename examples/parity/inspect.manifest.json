@@ -1,0 +1,15 @@
+{
+  "$comment": "九展厅清单（tier=full 全 used）。complete.mjs 校验 used 族对应展厅必须 used 且有三张证据截图。",
+  "version": 1,
+  "galleries": {
+    "mats":     { "state": "used", "note": "SL 材质目录 12 球球墙（triplanar 实拍）" },
+    "props":    { "state": "used", "note": "堆场集装箱锚点 + 手写道具阵 + 地面贴花" },
+    "enemies":  { "state": "used", "note": "enemy-kit 双型 rig（隼/猎犬）刷兵实拍" },
+    "weapon":   { "state": "used", "note": "weapon-kit PAC-9 挂相机实拍，54° 武器机位" },
+    "fx":       { "state": "used", "note": "fx 池 + 发射器 + 周期爆炸采样（含 audio 频谱证据）" },
+    "render":   { "state": "used", "note": "post-chain + bloom + AA + HUD 叠加全景" },
+    "ground":   { "state": "used", "note": "湿地积水/涟漪/标线 + 平面反射特写" },
+    "backdrop": { "state": "used", "note": "sky-deck 黄昏云甲板 + sea.glsl 海面 + 太阳碎光" },
+    "level":    { "state": "used", "note": "四区布局俯视（闸口/堆场/仓库/码头 + 中继目标）" }
+  }
+}

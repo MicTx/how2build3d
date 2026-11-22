@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "title": "Saltline 元素对账清单：上游有什么、我方下限是多少、验收看哪里",
+  "$comment": "机器可读的同水准合同。complete.mjs 读取本文件 + 场景的 scene.elements.json + 运行时 window.__PARITY__，逐族判 used/n-a 与数量下限。文档解释见 references/11-element-parity.md。galleries 与 constants 判等：本文件的 galleries 顺序、elements 的 18 族 id 顺序、每个 element.gallery 归属由 harness/gates/consistency.mjs --all 对照 harness/constants.mjs 校验。",
+  "source": {
+    "fixture": "sources/jimao-3a-game/index.html",
+    "rawLines": 6214,
+    "prettyLines": 59623,
+    "citationRule": "引用指上游文件行号：raw 用 [src:Lx-Ly]，prettify 产物用 [src:pretty:Lx-Ly]；范围 ≤400 行。"
+  },
+  "runtime": {
+    "global": "__PARITY__",
+    "countsPath": "counts",
+    "note": "场景在 boot 末尾写 window.__PARITY__ = { counts: { <metric>: <number> }, source: { ... } }；数字必须是实测（几何/材质/规格表/布点计数），不是声明值。"
+  },
+  "galleries": ["mats", "props", "enemies", "weapon", "fx", "render", "ground", "backdrop", "level"],
+  "tiers": {
+    "$comment": "场景在 scene.elements.json 声明 tier。full=同水准交付，逐族下限全部生效；visual/game=中间样本，只做结构+证据+广度检查，不套同水准下限。",
+    "visual": { "minUsed": 5 },
+    "game": { "minUsed": 3 },
+    "full": { "minUsed": 15, "enforceFloors": true }
+  },
+  "elements": [
+    {
+      "id": "props",
+      "name": "道具与零件目录",
+      "gallery": "props",
+      "asset": "assets/props-kit.mjs",
+      "doc": "references/11-element-parity.md#props",
+      "upstream": {
+        "kinds": 35,
+        "builders": 17,
+        "placed": 180,
+        "detail": "PROP_SIZES 35 类 [w,h,d,material,family]；17 个参数化 builder 经 _i(name,fn) 注册，其余回落到带碰撞盒的通用盒；关卡里约 180 处手写坐标摆放。",
+        "refs": ["[src:pretty:L35069-L35106]", "[src:pretty:L37358-L37375]"]
+      },
+      "floors": [
+        { "metric": "propKinds", "min": 12, "label": "道具种类" },
+        { "metric": "placedProps", "min": 60, "label": "场中实例数" }
+      ]
+    },
+    {
+      "id": "decals",
+      "name": "Canvas 贴花与标识排版",
+      "gallery": "props",
+      "asset": "assets/props-kit.mjs",
+      "doc": "references/11-element-parity.md#decals",
+      "upstream": {
+        "types": 22,
+        "detail": "hazard_flammable/voltage/general、arrow、no_entry、四组 logo、berth4、caution_stripes、grime_streak、rust_run、oil_stain、leak_stain、bullet_metal/concrete、scorch、crack、graffiti_tag、csc_plate、数字 0-9；另有 CJK 钢印 stencil。",
+        "refs": ["[src:pretty:L33225-L33310]", "[src:pretty:L33585-L33620]"]
+      },
+      "floors": [
+        { "metric": "decalTypes", "min": 6, "label": "贴花种类" },
+        { "metric": "placedDecals", "min": 15, "label": "场中贴花数" }
+      ]
+    },
+    {
+      "id": "materials",
+      "name": "材质目录",
+      "gallery": "mats",
+      "asset": "assets/sl-surface.mjs",
+      "doc": "references/11-element-parity.md#materials",
+      "upstream": {
+        "named": 51,
+        "detail": "8 种漆色经 Xa(hex) 生成，4 种混凝土、5 种钢、铝/黄铜/链网/危险条纹/枪金属/阳极氧化、聚合物/橡胶/碳纤、织物/装甲、两种木、三种塑料、篷布/纸板/绳/轮胎/玻璃×2/船壳×2/深水/环氧地坪，每种带 tint/rough/metal/wet[4]/macro[4]。",
+        "refs": ["[src:pretty:L34087-L34160]"]
+      },
+      "floors": [{ "metric": "materialCount", "min": 16, "label": "材质条目数" }]
+    },
+    {
+      "id": "textures",
+      "name": "程序化 PBR 纹理集",
+      "gallery": "mats",
+      "asset": "assets/sl-textures.mjs",
+      "doc": "references/11-element-parity.md#textures",
+      "upstream": {
+        "generators": 27,
+        "sets": 29,
+        "detail": "fbm/voronoi(F1/F2/cell)/scratch/paint-chip/stain/run 模型；MRT(count=3) 出 albedo+ORM+高度，Sobel 高度转法线。启动期 110MB 贴图约 100ms。",
+        "refs": ["[src:pretty:L34043-L34086]"]
+      },
+      "floors": [{ "metric": "textureSets", "min": 10, "label": "纹理集数" }]
+    },
+    {
+      "id": "sky",
+      "name": "程序化天空与云甲板",
+      "gallery": "backdrop",
+      "asset": "assets/sky-deck.glsl",
+      "doc": "references/11-element-parity.md#sky",
+      "upstream": {
+        "systems": 1,
+        "detail": "ridged 云底、太阳烧穿云洞、云内闪电（uFlash/uFlashDir）、大气透视；同一 shader 的 uEnv 变体烘 PMREM，室内另用 CubeCamera 探针。",
+        "refs": ["[src:pretty:L30644-L30740]"]
+      },
+      "floors": [{ "metric": "skyPasses", "min": 1, "label": "天空 pass 数" }]
+    },
+    {
+      "id": "sea",
+      "name": "海面",
+      "gallery": "backdrop",
+      "asset": "assets/sea.glsl",
+      "doc": "references/11-element-parity.md#sea",
+      "upstream": {
+        "systems": 1,
+        "detail": "环形几何级差网格 + 涌浪位移 + 太阳碎光/cat's paws 高光 + 波法线重建 + 雾；receiveShadow。",
+        "refs": ["[src:pretty:L45181-L45240]"]
+      },
+      "floors": [{ "metric": "seaSurfaces", "min": 1, "label": "海面网格数" }]
+    },
+    {
+      "id": "ground",
+      "name": "地面：湿痕/积水/接缝/标线",
+      "gallery": "ground",
+      "asset": "assets/ssr-wet.glsl",
+      "doc": "references/11-element-parity.md#ground",
+      "upstream": {
+        "systems": 4,
+        "detail": "生成 mask/detail/normal 三张 RT + 2048 标线/胎痕 Canvas；积水深度函数（室内 .12 / 室外 .6 / 码头 1）+ 水滴环涟漪 Klein-Gordon 相位 + 平面反射前置 pass。",
+        "refs": ["[src:pretty:L44697-L44860]"]
+      },
+      "floors": [
+        { "metric": "groundLayers", "min": 2, "label": "地面层次数（mask/detail/marking/puddle）" },
+        { "metric": "puddlePatches", "min": 3, "label": "积水区块数" }
+      ]
+    },
+    {
+      "id": "weather",
+      "name": "雨与雷暴",
+      "gallery": "ground",
+      "asset": "assets/weather-kit.mjs",
+      "doc": "references/11-element-parity.md#weather",
+      "upstream": {
+        "rainStreaks": 9000,
+        "splashes": 900,
+        "thunder": "22-55s 随机调度，驱动天空 uFlash + 音效 + post uThunder",
+        "detail": "雨条/溅射各一组 InstancedMesh；最多 4 个室内盒 + 8 个天窗矩形做排除，雨可从屋顶开口落进棚内；风向量 (-2.6,-9.4,1.1)。",
+        "refs": ["[src:pretty:L45423-L45485]"]
+      },
+      "floors": [
+        { "metric": "rainStreaks", "min": 800, "label": "雨条实例数" },
+        { "metric": "thunderEvents", "min": 1, "label": "雷暴调度事件数", "required": false }
+      ]
+    },
+    {
+      "id": "post",
+      "name": "单 pass 后处理链",
+      "gallery": "render",
+      "asset": "assets/post-chain.glsl",
+      "doc": "references/11-element-parity.md#post",
+      "upstream": {
+        "operations": 25,
+        "passes": 5,
+        "detail": "半分辨率 SSAO(12 tap)、体积雾采样太阳阴影图、6 级 bloom 金字塔 + 变形宽银幕条纹、1×1 自动曝光 ping-pong、镜头污渍、AgX 混合调色、CA/暗角/颗粒/锐化/FXAA；每 pass 有 SALTLINE_POST marker 可归因。",
+        "refs": ["[src:pretty:L31177-L31260]"]
+      },
+      "floors": [
+        { "metric": "postPasses", "min": 5, "label": "后处理 pass 数" },
+        { "metric": "bloomLevels", "min": 2, "label": "bloom 金字塔级数", "required": false }
+      ]
+    },
+    {
+      "id": "shadow",
+      "name": "软阴影（PCSS）",
+      "gallery": "render",
+      "asset": "assets/pcss-shadow.glsl",
+      "doc": "references/11-element-parity.md#shadow",
+      "upstream": {
+        "taps": 16,
+        "detail": "Vogel 盘 + blocker search + receiver-plane bias，按档 10/16 tap；布局自检失败退回 stock PCF；bias -1.2e-4 / normalBias .02，隔帧门控。",
+        "refs": ["[src:pretty:L30840-L30890]"]
+      },
+      "floors": [
+        { "metric": "shadowMaps", "min": 1, "label": "阴影图数量" },
+        { "metric": "shadowTaps", "min": 10, "label": "PCSS 采样数", "required": false }
+      ]
+    },
+    {
+      "id": "enemies",
+      "name": "敌人：骨骼/IK/感知",
+      "gallery": "enemies",
+      "asset": "assets/enemy-kit.mjs",
+      "doc": "references/11-element-parity.md#enemies",
+      "upstream": {
+        "types": 2,
+        "spawns": 41,
+        "detail": "隼（四旋翼飞行）与猎犬（四足 2 骨 IK 步态、脚踩地身体前移、落后阈值迈步）；命中区头 ×2.2；感知 sightRange 45 / 锥 200° / hearRadius 45；攻击令牌同时 2 个、按类型轮换、间隔 1.25s；残骸上限 5。",
+        "refs": ["[src:pretty:L56171-L56190]", "[src:pretty:L56650-L56670]", "[src:pretty:L57429-L57440]"]
+      },
+      "floors": [
+        { "metric": "enemyTypes", "min": 1, "label": "敌人类型数" },
+        { "metric": "enemySpawns", "min": 6, "label": "刷兵点数" },
+        { "metric": "enemyRigs", "min": 1, "label": "可动画 rig 数" }
+      ]
+    },
+    {
+      "id": "weapon",
+      "name": "武器视图模型与手感",
+      "gallery": "weapon",
+      "asset": "assets/weapon-kit.mjs",
+      "doc": "references/11-element-parity.md#weapon",
+      "upstream": {
+        "channels": 9,
+        "detail": "PAC-9：手写 2D 型材挤出的视图模型（49 段导轨槽、4 个材质槽）、muzzle/eject 锚点、瞄准窗多边形、弹匣位；9 通道弹簧阻尼（kZ 520/30、kP 380/26…）；后坐分离 recoilKeep .35 / apply 34 / recover 6.5 / hold .09；ADS fov 52；枪相机 54°。",
+        "refs": ["[src:pretty:L54827-L54870]", "[src:pretty:L55096-L55120]"]
+      },
+      "floors": [
+        { "metric": "weaponMeshes", "min": 1, "label": "视图模型网格数" },
+        { "metric": "weaponChannels", "min": 9, "label": "弹簧通道数" }
+      ]
+    },
+    {
+      "id": "fx",
+      "name": "FX：枪口焰/弹道/弹着/水花/贴花",
+      "gallery": "fx",
+      "asset": "assets/fx-kit.mjs",
+      "doc": "references/11-element-parity.md#fx",
+      "upstream": {
+        "api": 11,
+        "detail": "lit + additive 两套 GPU billboard 池（128px 生成图集）、tracer 48、debris 256、shell 60、decal 160，合计 5 draw call；API：muzzleFlash/tracer/impact/sparks/smoke/dust/explosion/shell/splash/debris/decal/addEmitter(steam|fire|drip)。",
+        "refs": ["[src:pretty:L48488-L48510]", "[src:pretty:L45423-L45485]"]
+      },
+      "floors": [
+        { "metric": "fxKinds", "min": 5, "label": "FX 种类数" },
+        { "metric": "fxPools", "min": 2, "label": "粒子池数" }
+      ]
+    },
+    {
+      "id": "audio",
+      "name": "合成音频：规格表/总线/五声部",
+      "gallery": "fx",
+      "asset": "assets/audio-kit.mjs",
+      "doc": "references/11-element-parity.md#audio",
+      "upstream": {
+        "specs": 57,
+        "buses": 5,
+        "detail": "上游表 57 条（50 个非音乐可播名 + 5 个音乐声部 + 2 张生成 IR；可播 55）；每行 gen/n/sr/peak/bus/max/pri/boot/loop/music/ir；总线 world22/near10/dry7/music4/amb1；6ms/12ms 预算的懒合成；五声部音乐按战斗强度 0.15/0.6/1 交叉淡化。我方 audio-kit 重编为 58 条（51+5+2，playable 56）。",
+        "refs": ["[src:pretty:L50465-L50521]", "[src:pretty:L50664-L50670]"]
+      },
+      "floors": [
+        { "metric": "soundSpecs", "min": 16, "label": "音效规格条目数" },
+        { "metric": "musicParts", "min": 1, "label": "音乐声部数" },
+        { "metric": "audioBuses", "min": 3, "label": "总线数" }
+      ]
+    },
+    {
+      "id": "hud",
+      "name": "HUD 与 UI 设计系统",
+      "gallery": "render",
+      "asset": "assets/hud-kit.mjs",
+      "doc": "references/11-element-parity.md#hud",
+      "upstream": {
+        "components": 11,
+        "detail": "罗盘带（-90..450°/5° + 目标标记）、目标面板 + 3 继电器 pip、准星随散布、命中标记三态、4 向伤害弧（SVG）、交互环、事件流、中央消息、血量 10 段、弹药 + 弹匣 pip、无线电行、开场地点卡；外加标题/暂停/死亡/简报四屏。",
+        "refs": ["[src:pretty:L57923-L57960]"]
+      },
+      "floors": [
+        { "metric": "hudComponents", "min": 6, "label": "HUD 组件数" },
+        { "metric": "hudTokens", "min": 6, "label": "设计 token 数", "required": false }
+      ]
+    },
+    {
+      "id": "layout",
+      "name": "关卡布局（分区/掩体/刷兵/目标）",
+      "gallery": "level",
+      "asset": "assets/level-kit.mjs",
+      "doc": "references/11-element-parity.md#layout",
+      "upstream": {
+        "zones": 4,
+        "spawns": 41,
+        "covers": 54,
+        "objectives": 3,
+        "detail": "闸口/堆场/仓库/码头四区带 bounds；41 个地面+空中刷兵点、54 个掩体点（2 个在箱顶 y=2.59）、12 点过场样条、玩家起点 (-32,0,6)、撤离点（船上，半径 2.5）；全部手写坐标，非随机。",
+        "refs": ["[src:pretty:L41500-L41510]", "[src:pretty:L42102-L42110]"]
+      },
+      "floors": [
+        { "metric": "zones", "min": 2, "label": "分区数" },
+        { "metric": "coverPoints", "min": 12, "label": "掩体点数" },
+        { "metric": "objectives", "min": 1, "label": "目标数" }
+      ]
+    },
+    {
+      "id": "loop",
+      "name": "玩法循环：波次/目标/撤离",
+      "gallery": "level",
+      "asset": "assets/combat-kit.mjs",
+      "doc": "references/11-element-parity.md#loop",
+      "upstream": {
+        "waves": 3,
+        "detail": "波次表 [{g3,h1},{g3,h2},{g4,h3}]、maxAlive 9、spawnStagger .85、spawnFar 18；三目标全切后追击（alive<4 每 7s 加 5）；撤离 → 简报评分（时间/命中率/重试次数）。",
+        "refs": ["[src:pretty:L58715-L58720]", "[src:pretty:L59062-L59075]"]
+      },
+      "floors": [
+        { "metric": "waves", "min": 1, "label": "波次数" },
+        { "metric": "objectivesWired", "min": 1, "label": "接入循环的目标数" }
+      ]
+    },
+    {
+      "id": "inspect",
+      "name": "自检展厅与检视钩子",
+      "gallery": null,
+      "asset": "assets/inspect-deck.mjs",
+      "doc": "references/11-element-parity.md#inspect",
+      "upstream": {
+        "galleries": 9,
+        "detail": "九展厅 gM = {mats, level, backdrop, ground, fx, weapon, enemies, props, render}；__G / __stats() / __setShot / __errors / __ready；URL 开关 show/shot/bench/q/seed。",
+        "refs": ["[src:pretty:L59271-L59275]", "[src:pretty:L59432-L59440]"]
+      },
+      "special": "inspect-manifest",
+      "floors": [{ "metric": "galleriesUsed", "min": 1, "label": "used 展厅数" }]
+    }
+  ]
+}

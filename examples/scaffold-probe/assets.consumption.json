@@ -1,0 +1,14 @@
+{
+  "$comment": "资产消费清单：八系统逐项 used / \"N/A: 理由\"。harness/gates/assets.mjs 读取 systems 字段；声明 used 仍须 marker 命中或原样引用资产文件作为证据。",
+  "version": 1,
+  "systems": {
+    "sl-surface": "used",
+    "sl-textures": "used",
+    "post-chain": "N/A: 骨架未接入后处理链（scene.mjs 直接 renderer.render，没有 pass 链）；接入后改 used 并保留 marker/readAsset 证据",
+    "post-aa": "N/A: 骨架未接入 AA pass（antialias:false 之后没有 FXAA pass）；接入后改 used 并保留 marker/readAsset 证据",
+    "pcss-shadow": "N/A: 骨架未接入 PCSS（shadowMap 仍是 PCFSoftShadowMap）；接入后改 used 并保留 marker/readAsset 证据",
+    "ssr-wet": "N/A: 骨架未接入湿地反射（ground.mjs 只有一层 SL 表面，puddles: 0）；接入后改 used 并保留 marker/readAsset 证据",
+    "shafts": "N/A: 骨架未接入体积光（VOL_STEPS 未进入灯光/后处理参数）；接入后改 used 并保留 marker/readAsset 证据",
+    "sky-deck": "N/A: 骨架未接入天空（scene.background 仍是纯色 + FogExp2）；接入后改 used 并保留 marker/readAsset 证据"
+  }
+}

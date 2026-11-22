@@ -1,0 +1,23 @@
+name: 故障报告 · Bug report
+description: Report an example, installer or verification failure.
+labels: [bug]
+body:
+  - type: input
+    id: environment
+    attributes:
+      label: Commit, OS, Node and browser versions
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal steps or commands
+      description: Include the example, seed and quality tier if relevant. Omit private data.
+    validations:
+      required: true
+  - type: textarea
+    id: comparison
+    attributes:
+      label: Expected and actual result
+    validations:
+      required: true

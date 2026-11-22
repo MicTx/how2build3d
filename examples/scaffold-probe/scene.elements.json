@@ -1,0 +1,98 @@
+{
+  "$comment": "元素对账申报：逐族 used / n-a。空理由与空证据会被 complete.mjs 判红——这就是 TODO 清单。",
+  "version": 1,
+  "scene": "examples/scaffold-probe",
+  "tier": "full",
+  "elements": {
+    "props": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "decals": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "materials": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "textures": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "sky": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "sea": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "ground": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "weather": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "post": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "shadow": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "enemies": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "weapon": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "fx": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "audio": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "hud": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "layout": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "loop": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    },
+    "inspect": {
+      "state": "n/a",
+      "reason": "",
+      "evidence": ""
+    }
+  }
+}

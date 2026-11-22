@@ -1,0 +1,227 @@
+{
+ "version": 1,
+ "generatedBy": "examples/parity/build.mjs",
+ "inline": {
+  "PhysicsKit": {
+   "asset": "assets/physics-kit.mjs",
+   "exports": [
+    "createPhysicsKit"
+   ]
+  },
+  "LevelKit": {
+   "asset": "assets/level-kit.mjs",
+   "exports": [
+    "validateLayout",
+    "createLevelKit"
+   ]
+  },
+  "CombatKit": {
+   "asset": "assets/combat-kit.mjs",
+   "exports": [
+    "COMBAT_TUNE_DEFAULTS",
+    "createCombatKit"
+   ]
+  },
+  "PropsKit": {
+   "asset": "assets/props-kit.mjs",
+   "exports": [
+    "PROP_SIZES",
+    "BUILDER_NAMES",
+    "PROP_PAINT_COLORS",
+    "SIGN_DECALS",
+    "SIGN_TEXTS",
+    "DECAL_PALETTE",
+    "DECAL_SPECS",
+    "DECAL_TYPES",
+    "MATERIAL_PRESETS",
+    "createRng",
+    "PROP_BUILDERS",
+    "PROP_FAMILIES",
+    "propSize",
+    "propMaterial",
+    "propFamily",
+    "isBuilder",
+    "buildModel",
+    "propColliders",
+    "worldColliders",
+    "showcase",
+    "decalSpec",
+    "decalAspect",
+    "createDecalFactory",
+    "createPropsKit",
+    "selfTest"
+   ]
+  },
+  "FxKit": {
+   "asset": "assets/fx-kit.mjs",
+   "exports": [
+    "FX_POOL_SPEC",
+    "FX_DRAW_CALLS",
+    "FX_ATLAS",
+    "FX_KINDS",
+    "FX_EMITTER_KINDS",
+    "FX_SURFACE_DECAL",
+    "FX_DECAL_SIZE",
+    "createFxKit",
+    "selfTest"
+   ]
+  },
+  "AudioKit": {
+   "asset": "assets/audio-kit.mjs",
+   "exports": [
+    "AUDIO_SPEC_FIELDS",
+    "AUDIO_BUSES",
+    "AUDIO_BUDGET",
+    "AUDIO_SPECS",
+    "createAudioKit",
+    "selfTest"
+   ]
+  },
+  "WeaponKit": {
+   "asset": "assets/weapon-kit.mjs",
+   "exports": [
+    "WEAPON_ANCHORS",
+    "WEAPON_SPRINGS",
+    "WEAPON_SPRING_CHANNELS",
+    "WEAPON_POSES",
+    "WEAPON_RELOAD_TIMELINE",
+    "WEAPON_TUNE_DEFAULTS",
+    "WEAPON_MATERIAL_SLOTS",
+    "WEAPON_PROFILES",
+    "WEAPON_PARTS",
+    "createRng",
+    "createWeaponKit",
+    "selfTest"
+   ]
+  },
+  "EnemyKit": {
+   "asset": "assets/enemy-kit.mjs",
+   "exports": [
+    "ENEMY_TUNE_DEFAULTS",
+    "HOUND_RIG",
+    "GULL_HULL",
+    "GAIT",
+    "HIT_ZONES",
+    "angleDelta",
+    "clampf",
+    "springStep",
+    "solveIK",
+    "createRng",
+    "SKELETONS",
+    "createEnemyKit",
+    "selfTest"
+   ]
+  },
+  "PlayerKit": {
+   "asset": "assets/player-kit.mjs",
+   "exports": [
+    "PLAYER_TUNE_DEFAULTS",
+    "PLAYER_DIMS",
+    "KEY_ACTIONS",
+    "GAMEPAD_BUTTONS",
+    "INPUT_MODES",
+    "INPUT_SCALES",
+    "PLAYER_EVENT_NAMES",
+    "createPlayerKit",
+    "selfTest"
+   ]
+  },
+  "HudKit": {
+   "asset": "assets/hud-kit.mjs",
+   "exports": [
+    "HUD_COMPASS",
+    "HUD_TOKENS",
+    "HUD_COMPONENTS",
+    "HUD_CSS",
+    "createHudKit",
+    "selfTest"
+   ]
+  },
+  "WeatherKit": {
+   "asset": "assets/weather-kit.mjs",
+   "exports": [
+    "WEATHER_POOL_SPEC",
+    "WEATHER_DRAW_CALLS",
+    "WEATHER_TUNE_DEFAULTS",
+    "createWeatherKit",
+    "selfTest"
+   ]
+  },
+  "SlSurface": {
+   "asset": "assets/sl-surface.mjs",
+   "exports": [
+    "SL_SURFACE",
+    "SL_MATERIALS",
+    "SL_MATERIAL_FALLBACK",
+    "injectSLSurface",
+    "createSurfaceMaterialFactory"
+   ]
+  },
+  "SlTextures": {
+   "asset": "assets/sl-textures.mjs",
+   "exports": [
+    "SL_TEX",
+    "SL_GENERATORS",
+    "SL_TEX_SETS",
+    "createTextureFactory"
+   ]
+  },
+  "InspectDeck": {
+   "asset": "assets/inspect-deck.mjs",
+   "exports": [
+    "INSPECT_GALLERIES",
+    "readInspectMode",
+    "createInspectDeck"
+   ]
+  },
+  "GLSL_postChain": {
+   "asset": "assets/post-chain.glsl",
+   "markers": [
+    "SALTLINE_POST"
+   ]
+  },
+  "GLSL_postAA": {
+   "asset": "assets/post-aa.glsl",
+   "markers": []
+  },
+  "GLSL_shafts": {
+   "asset": "assets/shafts.glsl",
+   "markers": [
+    "SALTLINE_POST",
+    "VOL_STEPS"
+   ]
+  },
+  "GLSL_skyDeck": {
+   "asset": "assets/sky-deck.glsl",
+   "markers": [
+    "SALTLINE_SKY"
+   ]
+  },
+  "GLSL_pcss": {
+   "asset": "assets/pcss-shadow.glsl",
+   "markers": [
+    "SALTLINE_SHADOW"
+   ]
+  },
+  "GLSL_ssrWet": {
+   "asset": "assets/ssr-wet.glsl",
+   "markers": [
+    "saltline-sea-1"
+   ]
+  },
+  "GLSL_sea": {
+   "asset": "assets/sea.glsl",
+   "markers": [
+    "saltline-sea-1",
+    "SEA_FRAGMENT",
+    "SEA_BEGIN_VERTEX",
+    "SEA_COMMON",
+    "SEA_MAP_FRAGMENT",
+    "SEA_NORMAL",
+    "SEA_GLITTER",
+    "SEA_FOG",
+    "SEA_VERT_HEAD"
+   ]
+  }
+ }
+}
